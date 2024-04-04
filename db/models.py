@@ -9,9 +9,11 @@ class Skin(Base):
     __tablename__ = "skins"
     id:Mapped[int] = mapped_column(primary_key=True)
     name:Mapped[str] = mapped_column(nullable=False)
-    market_hash_name:Mapped[str] = mapped_column(nullable=False)
-    sell_price_text:Mapped[float] = mapped_column(nullable=False)
-    icon_url:Mapped[str] = mapped_column(nullable=False)
+    price:Mapped[float] = mapped_column(nullable=False)
+    collection_id:Mapped[int] = mapped_column(nullable=False)
+    quality_id:Mapped[int] = mapped_column(nullable=False)
+    min_float:Mapped[float] = mapped_column(nullable=False)
+    max_float:Mapped[float] = mapped_column(nullable=False)
 
     def __repr__(self):
-        return f"Name = {self.name}\nPrice = {self.sell_price_text}\nName = https://community.cloudflare.steamstatic.com/economy/image/{self.icon_url}\n"
+        return f"Name = {self.name}\nPrice = {self.price}\n"
